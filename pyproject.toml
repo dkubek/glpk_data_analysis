@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "mcfglpk-data-analysis"
+version = "0.1.0"
+description = ""
+authors = ["David Kubek <david.kubek@gmail.com>"]
+readme = "README.md"
+packages = [{include = "test_set"}]
+
+[tool.poetry.dependencies]
+python = "3.11.2"
+numpy = "^1.24.2"
+seaborn = "^0.12.2"
+pandas = "^1.5.3"
+statsmodels = "^0.13.5"
+mip = "^1.15.0"
+pulp = "^2.7.0"
+jupyterlab = "^3.6.1"
+
+[tool.poetry.group.dev.dependencies]
+yapf = "^0.32.0"
+isort = "^5.12.0"
+pylint = "^2.17.0"
+ipython = "^8.11.0"
+jupyterlab = "^3.6.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
