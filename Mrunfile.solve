@@ -1,0 +1,43 @@
+# Name of the job. If not specified, the name of the parent directory of this
+# file will be used insted.
+job_name=solve_exact_glpk
+
+# An array of files to copy to remote. All paths should be given relative to
+# this file
+data=(
+    ./init.sh
+    ./scripts/run_experiment.sh
+    ./scripts/convert_mmcf_to_lp.sh
+    ./scripts/construct_mmcf_problem.py
+)
+
+# Path to batch script. If not specified, "${job_name}.sh" will be used by
+# default.
+batch_script="./solve.batch"
+
+# The command to run on remote
+# Can be either a single command or an array of commands which will be run in
+# parallel in separate jobs using the same batch_script
+# 
+# job_command="command"
+# job_command=(
+#    "command_1"
+#    "command_2"
+#    "command_3"
+# )
+#
+# WARNING: It's very important to quote the commands, otherwise each word
+# separated by space will be interpreted as a separate command!
+
+job_command=(
+    #"THREADS=16 RESULTS_DIR=/results/mmcf/aer DATA_DIR=/data/mmcf/aer bash run_experiment.sh"
+    #"THREADS=16 RESULTS_DIR=/results/mmcf/hydro DATA_DIR=/data/mmcf/hydro bash run_experiment.sh"
+    #"THREADS=16 RESULTS_DIR=/results/mmcf/jlf DATA_DIR=/data/mmcf/jlf bash run_experiment.sh"
+    #"THREADS=16 RESULTS_DIR=/results/mmcf/pds DATA_DIR=/data/mmcf/pds bash run_experiment.sh"
+    #"THREADS=16 RESULTS_DIR=/results/mmcf/vance DATA_DIR=/data/mmcf/vance bash run_experiment.sh"
+    #"THREADS=32 RESULTS_DIR=/results/mmcf/mnetgen DATA_DIR=/data/mmcf/mnetgen bash run_experiment.sh"
+    #"THREADS=32 RESULTS_DIR=/results/mmcf/grid DATA_DIR=/data/mmcf/grid bash run_experiment.sh"
+    #"THREADS=32 RESULTS_DIR=/results/mmcf/planar DATA_DIR=/data/mmcf/planar bash run_experiment.sh"
+    #"THREADS=32 RESULTS_DIR=/results/netlib DATA_DIR=/data/netlib bash run_experiment.sh"
+    "THREADS=32 RESULTS_DIR=/results/mmcf DATA_DIR=/data/mmcf bash run_experiment.sh"
+)
